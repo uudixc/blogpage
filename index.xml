@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>power site</title>
     <link>https://blogb.hzyabc.ml/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on power site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 23 Apr 2023 21:20:00 +0800</lastBuildDate><atom:link href="https://blogb.hzyabc.ml/index.xml" rel="self" type="application/rss+xml" />
