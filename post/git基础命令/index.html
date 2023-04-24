@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://blogb.hzyabc.ml/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/github.min.css' />
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/github-style.css' />
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/light.css' />
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/dark.css' />
+    <link rel="stylesheet" href='https://blogb.hzyabc.ml/css/syntax.css' />
+    <title>Git基础命令 - power site</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://blogb.hzyabc.ml/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="Git是一种版本控制系统，用于跟踪代码的更改历史记录，协作开发，以及管理项目。" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://blogb.hzyabc.ml/post/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Git基础命令 - power site" />
+<meta name="twitter:description"
+  content="Git是一种版本控制系统，用于跟踪代码的更改历史记录，协作开发，以及管理项目。" />
+<meta name="twitter:site" content="https://blogb.hzyabc.ml" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://blogb.hzyabc.ml">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Git基础命令 - power site">
+<meta property="og:description"
+  content="Git是一种版本控制系统，用于跟踪代码的更改历史记录，协作开发，以及管理项目。" />
+<meta property="og:url" content="https://blogb.hzyabc.ml/post/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" />
+<meta property="og:site_name" content="Git基础命令" />
+<meta property="og:image"
+  content="https://blogb.hzyabc.ml">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-04-24 09:02:58 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://blogb.hzyabc.ml">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://blogb.hzyabc.ml">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://blogb.hzyabc.ml">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://blogb.hzyabc.ml">
+                  <img class=" avatar-user"
+                    src="https://blogb.hzyabc.ml/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://blogb.hzyabc.ml">抛瓦！！</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://blogb.hzyabc.ml/post/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Git基础命令</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 24 Apr 2023 09:02:58 &#43;0800"
+                    class="no-wrap">
+                    Mon, 24 Apr 2023 09:02:58 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Mon, 24 Apr 2023 09:02:58 &#43;0800"
+                    class="no-wrap">
+                    Mon, 24 Apr 2023 09:02:58 &#43;0800</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1374 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="git基础命令">Git基础命令</h1>
+<p>Git是一种版本控制系统，用于跟踪代码的更改历史记录，协作开发，以及管理项目。</p>
+<p>以下是基本的Git使用方法：</p>
+<ul>
+<li>安装Git：下载并安装Git客户端，可以从Git官方网站 <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> 或者其他渠道获得。</li>
+<li>初始化Git仓库：在本地项目目录中打开命令行或终端，输入“git init”命令，将创建一个Git仓库。</li>
+<li>添加文件到Git仓库：使用“git add”命令将文件添加到Git仓库。例如，要添加一个名为“myfile.txt”的文件，可以运行“git add myfile.txt”。</li>
+<li>提交更改：使用“git commit”命令提交更改到Git仓库。例如，运行“git commit -m &lsquo;added myfile.txt&rsquo;”将添加一个提交消息并提交更改。</li>
+<li>查看更改历史记录：使用“git log”命令查看Git仓库的更改历史记录。例如，运行“git log”将显示每个提交及其提交消息。</li>
+<li>创建分支：使用“git branch”命令创建分支。例如，要创建名为“mybranch”的分支，可以运行“git branch mybranch”。</li>
+<li>切换分支：使用“git checkout”命令切换到另一个分支。例如，要切换到名为“mybranch”的分支，可以运行“git checkout mybranch”。</li>
+<li>合并分支：使用“git merge”命令将一个分支合并到当前分支。例如，要将名为“mybranch”的分支合并到当前分支，可以运行“git merge mybranch”。</li>
+<li>推送到远程仓库：使用“git push”命令将更改推送到远程Git仓库。例如，要将更改推送到名为“origin”的远程仓库，可以运行“git push origin”。</li>
+<li>克隆远程仓库：使用“git clone”命令克隆远程Git仓库到本地。例如，要克隆名为“myrepo”的远程仓库，可以运行“git clone git://github.com/user/myrepo.git”。</li>
+<li>拉取最新更改：使用“git pull”命令从远程Git仓库拉取最新更改。例如，要从名为“origin”的远程仓库拉取最新更改，可以运行“git pull origin”。</li>
+<li>忽略文件：可以创建名为“.gitignore”的文件，列出不需要被Git跟踪的文件或文件夹。例如，要忽略所有“.log”文件，可以在“.gitignore”文件中添加“*.log”。</li>
+<li>撤销更改：使用“git reset”命令可以撤销已经提交到Git仓库中的更改。例如，要撤销最新的提交并保留更改内容，可以运行“git reset HEAD~1”。</li>
+<li>暂存更改：使用“git stash”命令可以暂存未提交的更改，以便稍后再使用。例如，要暂存所有未提交的更改，可以运行“git stash save”。</li>
+<li>恢复暂存的更改：使用“git stash apply”命令可以恢复先前暂存的更改。例如，要恢复最新的暂存更改，可以运行“git stash apply”。</li>
+<li>查看更改差异：使用“git diff”命令可以查看更改的差异。例如，要查看当前工作区和最新提交之间的差异，可以运行“git diff HEAD”。</li>
+<li>查看文件历史记录：使用“git blame”命令可以查看每个行的修改历史记录。例如，要查看名为“myfile.txt”的文件的历史记录，可以运行“git blame myfile.txt”。</li>
+<li>操作标签：使用“git tag”命令可以创建、查看和删除标签。例如，要创建名为“v1.0”的标签并附上提交消息，“git tag -a v1.0 -m &lsquo;release v1.0&rsquo;”。</li>
+</ul>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://blogb.hzyabc.ml/js/toc.js'></script>
+<link rel="stylesheet" href='https://blogb.hzyabc.ml/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://blogb.hzyabc.ml">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://blogb.hzyabc.ml/js/github-style.js"></script>
+
+
+
+
+</html>

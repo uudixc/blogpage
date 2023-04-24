@@ -6,7 +6,16 @@
     <description>Recent content in Posts on power site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Apr 2023 21:20:00 +0800</lastBuildDate><atom:link href="https://blogb.hzyabc.ml/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 09:02:58 +0800</lastBuildDate><atom:link href="https://blogb.hzyabc.ml/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git基础命令</title>
+      <link>https://blogb.hzyabc.ml/post/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 24 Apr 2023 09:02:58 +0800</pubDate>
+      
+      <guid>https://blogb.hzyabc.ml/post/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>Git是一种版本控制系统，用于跟踪代码的更改历史记录，协作开发，以及管理项目。</description>
+    </item>
+    
     <item>
       <title>部署biliroaming Serve Ts Vercel(部署哔哩漫游服务器)</title>
       <link>https://blogb.hzyabc.ml/post/%E9%83%A8%E7%BD%B2biliroaming-serve-ts-vercel%E9%83%A8%E7%BD%B2%E5%93%94%E5%93%A9%E6%BC%AB%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
